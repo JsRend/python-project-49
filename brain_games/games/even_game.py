@@ -1,6 +1,6 @@
 import random
 
-from brain_engine import starting_game, greeting
+from brain_games.games.brain_engine import starting_game, greeting
 
 number_round = 3
 upper_bound = 50
