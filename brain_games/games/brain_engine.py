@@ -27,8 +27,10 @@ def starting_game(question, correct_answer):
 
     task_player(question)
     user_answer = prompt.string('Your answer: ')
+
     if user_answer.upper() == correct_answer.upper():
-        successful_execution
+        successful_execution()
+        return True
     else:
         execution_with_error(user_answer, correct_answer)
-        return 0
+        return False
