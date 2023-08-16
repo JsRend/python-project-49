@@ -21,5 +21,8 @@ Brain-even game:
 2) Winning the game:
 [![asciicast](https://asciinema.org/a/m6RQz06X8S0aUJ5IjUn4zvlcw.svg)](https://asciinema.org/a/m6RQz06X8S0aUJ5IjUn4zvlcw)
 
+Brain-gcd game:
+[![asciicast](https://asciinema.org/a/1dBBnUfKsVdX5bY1Q45qMIIlX.svg)](https://asciinema.org/a/1dBBnUfKsVdX5bY1Q45qMIIlX)
+
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/JsRend/python-project-49/workflows/hexlet-check/badge.svg)](https://github.com/JsRend/python-project-49/actions)
