@@ -25,7 +25,7 @@ def calc_game():
         question = f"{rand_operand()} {random_operation} {rand_operand()}"
         correct_answer = f"{eval(question)}"
 
-        if starting_game(question, correct_answer):
+        if starting_game(question, correct_answer, user_name):
             continue
         else:
             return 0

@@ -2,10 +2,11 @@ import random
 
 from brain_games.games.brain_engine import starting_game, greeting
 
-min_length = 10
-number_round = 3
-step_border_min = 1
-step_border_max = 6
+
+MIN_LENGTH = 10
+NUMBER_ROUND = 3
+STEP_BORDER_MAX = 6
+STEP_BORDER_MIN = 1
 
 
 def rand_operand(lower_bound=0, upper_bound=15):
@@ -13,14 +14,16 @@ def rand_operand(lower_bound=0, upper_bound=15):
 
 
 def progression_game():
+
     user_name = greeting()
+
     print('What number is missing in the progression?')
 
-    for count in range(int(number_round)):
+    for count in range(int(NUMBER_ROUND)):
 
-        length_progression = rand_operand(min_length)
+        length_progression = rand_operand(MIN_LENGTH)
         initial_element = rand_operand()
-        step_progression = rand_operand(step_border_min, step_border_max)
+        step_progression = rand_operand(STEP_BORDER_MIN, STEP_BORDER_MAX)
 
         progression_list = []
         last_elem = (initial_element + (step_progression * length_progression))
@@ -37,10 +40,11 @@ def progression_game():
 
         question = ' '.join(map(str, progression_list))
 
-        if starting_game(question, correct_answer):
+        if starting_game(question, correct_answer, user_name):
             continue
         else:
             return 0
+
     print(f"Congratulations, {user_name}!")
 
 

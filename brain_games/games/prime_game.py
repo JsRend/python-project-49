@@ -2,7 +2,7 @@ import random
 
 from brain_games.games.brain_engine import starting_game, greeting
 
-number_round = 3
+NUMBER_ROUND = 3
 
 
 def rand_operand(lower_bound=2, upper_bound=100):
@@ -17,20 +17,22 @@ def is_prime(x):
 
 
 def prime_game():
+
     user_name = greeting()
+
     print('Answer "yes" if given number is prime. Otherwise answer "no".')
 
-    for count in range(int(number_round)):
+    for count in range(int(NUMBER_ROUND)):
 
         number = rand_operand()
         correct_answer = is_prime(number)
-
         question = number
 
-        if starting_game(question, correct_answer):
+        if starting_game(question, correct_answer, user_name):
             continue
         else:
             return 0
+
     print(f"Congratulations, {user_name}!")
 
 
