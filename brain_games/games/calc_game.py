@@ -2,26 +2,26 @@ import random
 
 from brain_games.games.brain_engine import starting_game, greeting
 
-number_round = 3
-count_operand = 2
-operands = []
-upper_bound = 50
-lower_bound = 0
+NUMBER_ROUND = 3
+UPPER_BOUND = 50
+LOWER_BOUND = 0
 
-operations = dict({0: '+', 1: '-', 2: '*'})
+OPERATIONS = dict({0: '+', 1: '-', 2: '*'})
 
 
 def rand_operand():
-    return random.randint(lower_bound, upper_bound)
+    return random.randint(LOWER_BOUND, UPPER_BOUND)
 
 
 def calc_game():
 
     user_name = greeting()
+
     print('What is the result of the expression?')
 
-    for count in range(int(number_round)):
-        random_operation = operations.get(random.choice(list(operations)))
+    for count in range(int(NUMBER_ROUND)):
+
+        random_operation = OPERATIONS.get(random.choice(list(OPERATIONS)))
         question = f"{rand_operand()} {random_operation} {rand_operand()}"
         correct_answer = f"{eval(question)}"
 
@@ -29,6 +29,7 @@ def calc_game():
             continue
         else:
             return 0
+
     print(f"Congratulations, {user_name}!")
 
 
