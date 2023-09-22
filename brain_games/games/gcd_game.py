@@ -4,7 +4,7 @@ from brain_games.games.brain_engine import starting_game, greeting
 
 NUMBER_ROUND = 3
 UPPER_BOUND = 50
-LOWER_BOUND = 0
+LOWER_BOUND = 1
 
 
 def rand_operand():
