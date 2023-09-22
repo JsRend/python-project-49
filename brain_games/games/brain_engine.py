@@ -16,14 +16,15 @@ def successful_execution():
     print('Correct!')
 
 
-def execution_with_error(user_answer, correct_answer):
+def execution_with_error(user_answer, correct_answer, user_name):
     print(
         f"'{user_answer}' is wrong answer ;(."
         f" Correct answer was '{correct_answer}'"
+        f"\nLet's try again, {user_name}!"
         )
 
 
-def starting_game(question, correct_answer):
+def starting_game(question, correct_answer, name):
 
     task_player(question)
     user_answer = prompt.string('Your answer: ')
@@ -32,12 +33,12 @@ def starting_game(question, correct_answer):
             successful_execution()
             return True
         else:
-            execution_with_error(user_answer, correct_answer)
+            execution_with_error(user_answer, correct_answer, name)
             return False
     except AttributeError:
         if int(user_answer) == int(correct_answer):
             successful_execution()
             return True
         else:
-            execution_with_error(user_answer, correct_answer)
+            execution_with_error(user_answer, correct_answer, name)
             return False
