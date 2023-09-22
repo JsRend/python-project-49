@@ -21,7 +21,7 @@ def execution_with_error(user_answer, correct_answer, user_name):
         f"'{user_answer}' is wrong answer ;(."
         f" Correct answer was '{correct_answer}'"
         f"\nLet's try again, {user_name}!"
-        )
+    )
 
 
 def starting_game(question, correct_answer, name):

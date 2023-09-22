@@ -10,7 +10,7 @@ def rand_operand(lower_bound=2, upper_bound=100):
 
 
 def is_prime(x):
-    for i in range(2, (x//2)+1):
+    for i in range(2, (x // 2) + 1):
         if x % i == 0:
             return 'no'
     return 'yes'
