@@ -1,8 +1,8 @@
-from brain_games.games.gcd_game import gcd_game
-
+from brain_games.games import gcd_game
+from brain_games import brain_engine
 
 def main():
-    gcd_game()
+    core(gcd_game)
 
 
 if __name__ == '__main__':
