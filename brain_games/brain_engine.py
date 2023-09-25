@@ -34,5 +34,6 @@ def core(game):
                 f" Correct answer was '{correct_answer}'"
                 f"\nLet's try again, {user_name}!"
             )
+            return 0
 
     print(f'Congratulations, {user_name}!')
