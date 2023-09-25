@@ -1,23 +1,21 @@
 import random
 
-from brain_games.games.brain_engine import starting_game, greeting
-
-NUMBER_ROUND = 3
 UPPER_BOUND = 50
 LOWER_BOUND = 1
 
+TASK = 'Find the greatest common divisor of given numbers.'
 
-def rand_operand():
+
+def give_random_operand():
     return random.randint(LOWER_BOUND, UPPER_BOUND)
 
 
-def find_gcd(larger_num, smaller_num):
+def find_gcd(number_A, number_B):
 
-    if larger_num and smaller_num == 0:
-        return 0
-
-    if larger_num < smaller_num:
-        larger_num, smaller_num = smaller_num, larger_num
+    if number_A < number_B:
+        smaller_num, larger_num = number_A, number_B
+    else:
+        smaller_num, larger_num = number_B, number_A
 
     while True:
         remainder = larger_num % smaller_num
@@ -29,27 +27,12 @@ def find_gcd(larger_num, smaller_num):
     return larger_num
 
 
-def gcd_game():
+def make_question():
 
-    user_name = greeting()
+    number_a = give_random_operand()
+    number_b = give_random_operand()
 
-    print('Find the greatest common divisor of given numbers.')
+    question = f"{number_a} {number_b}"
+    correct_answer = f"{find_gcd(number_a, number_b)}"
 
-    for count in range(int(NUMBER_ROUND)):
-
-        number_a = rand_operand()
-        number_b = rand_operand()
-
-        question = f"{number_a} {number_b}"
-        correct_answer = f"{find_gcd(number_a, number_b)}"
-
-        if starting_game(question, correct_answer, user_name):
-            continue
-        else:
-            return 0
-
-    print(f"Congratulations, {user_name}!")
-
-
-if __name__ == '__main__':
-    gcd_game()
+    return question, correct_answer

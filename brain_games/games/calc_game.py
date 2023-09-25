@@ -1,37 +1,35 @@
 import random
 
-from brain_games.games.brain_engine import starting_game, greeting
-
-NUMBER_ROUND = 3
 UPPER_BOUND = 50
 LOWER_BOUND = 0
 
-OPERATIONS = dict({0: '+', 1: '-', 2: '*'})
+OPERATIONS = {0: '+', 1: '-', 2: '*'}
+
+TASK = 'What is the result of the expression?'
 
 
-def rand_operand():
+def give_random_operand():
     return random.randint(LOWER_BOUND, UPPER_BOUND)
 
 
-def calc_game():
-
-    user_name = greeting()
-
-    print('What is the result of the expression?')
-
-    for count in range(int(NUMBER_ROUND)):
-
-        random_operation = OPERATIONS.get(random.choice(list(OPERATIONS)))
-        question = f"{rand_operand()} {random_operation} {rand_operand()}"
-        correct_answer = f"{eval(question)}"
-
-        if starting_game(question, correct_answer, user_name):
-            continue
-        else:
-            return 0
-
-    print(f"Congratulations, {user_name}!")
+def get_correct_answer(question:str):
+    components = question.split()
+    if components[1] == '+':
+        return operator.add(components[0], components[2])
+    if components[1] == '-':
+        return operator.sub(components[0], components[2])
+    if components[1] == '*':
+        return operator.mul(components[0], components[2])
 
 
-if __name__ == '__main__':
-    calc_game()
+def make_question():
+
+    random_operation = random.choice(OPERATIONS)
+    question = (f"{give_random_operand()}"
+                f" {random_operation} "
+                f"{give_random_operand()}"
+                )
+
+    correct_answer = f"{get_correct_answer(question)}"
+
+    return question, correct_answer

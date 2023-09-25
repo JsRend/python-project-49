@@ -1,52 +1,33 @@
 import random
 
-from brain_games.games.brain_engine import starting_game, greeting
-
-
 MIN_LENGTH = 10
-NUMBER_ROUND = 3
 STEP_BORDER_MAX = 6
 STEP_BORDER_MIN = 1
 
+TASK = 'What number is missing in the progression?'
 
-def rand_operand(lower_bound=0, upper_bound=15):
+
+def give_random_operand(lower_bound=0, upper_bound=15):
     return random.randint(lower_bound, upper_bound)
 
 
-def progression_game():
+def make_question():
 
-    user_name = greeting()
+    length_progression = give_random_operand(MIN_LENGTH)
+    initial_element = give_random_operand()
+    step_progression = give_random_operand(STEP_BORDER_MIN, STEP_BORDER_MAX)
 
-    print('What number is missing in the progression?')
+    progression_list = []
+    last_elem = (initial_element + (step_progression * length_progression))
 
-    for count in range(int(NUMBER_ROUND)):
+    for element in range(initial_element, last_elem, step_progression):
+        progression_list.append(element)
 
-        length_progression = rand_operand(MIN_LENGTH)
-        initial_element = rand_operand()
-        step_progression = rand_operand(STEP_BORDER_MIN, STEP_BORDER_MAX)
+    random_index = randint(0, length_progression)
+    correct_answer = str(progression_list[random_index])
 
-        progression_list = []
-        last_elem = (initial_element + (step_progression * length_progression))
+    progression_list[random_index] = '..'
 
-        for element in range(initial_element, last_elem, step_progression):
-            progression_list.append(element)
+    question = ' '.join(progression_list)
 
-        random_element = random.choice(progression_list)
-        element_index = progression_list.index(random_element)
-        correct_answer = progression_list.pop(element_index)
-
-        patch = '..'
-        progression_list.insert(element_index, patch)
-
-        question = ' '.join(map(str, progression_list))
-
-        if starting_game(question, correct_answer, user_name):
-            continue
-        else:
-            return 0
-
-    print(f"Congratulations, {user_name}!")
-
-
-if __name__ == '__main__':
-    progression_game()
+    return question, correct_answer
