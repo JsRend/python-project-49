@@ -23,7 +23,9 @@ def make_question():
     for element in range(initial_element, last_elem, step_progression):
         progression_list.append(element)
 
-    random_index = random.randint(0, length_progression)
+    random_index = random.randrange(0, length_progression)
+    print("Прогрессия: ", progression_list)
+    print("ИНДЕКС: ", random_index)
     correct_answer = str(progression_list[random_index])
 
     progression_list[random_index] = '..'
