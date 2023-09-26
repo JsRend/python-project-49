@@ -23,11 +23,13 @@ def make_question():
     for element in range(initial_element, last_elem, step_progression):
         progression_list.append(element)
 
-    random_index = randint(0, length_progression)
+    random_index = random.randint(0, length_progression)
     correct_answer = str(progression_list[random_index])
 
     progression_list[random_index] = '..'
 
-    question = ' '.join(progression_list)
+    question = ' '.join(map(str, progression_list))
+    # map(str, LIST) allows you to remove the quotation marks "[" when output.
+    # Not a bug, a feature
 
     return question, correct_answer

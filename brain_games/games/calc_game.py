@@ -1,4 +1,5 @@
 import random
+import operator
 
 UPPER_BOUND = 50
 LOWER_BOUND = 0
@@ -12,14 +13,14 @@ def give_random_operand():
     return random.randint(LOWER_BOUND, UPPER_BOUND)
 
 
-def get_correct_answer(question:str):
+def get_correct_answer(question: str):
     components = question.split()
     if components[1] == '+':
-        return operator.add(components[0], components[2])
+        return operator.add(int(components[0]), int(components[2]))
     if components[1] == '-':
-        return operator.sub(components[0], components[2])
+        return operator.sub(int(components[0]), int(components[2]))
     if components[1] == '*':
-        return operator.mul(components[0], components[2])
+        return operator.mul(int(components[0]), int(components[2]))
 
 
 def make_question():
