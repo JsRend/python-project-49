@@ -16,4 +16,4 @@ publish:
 package-install:
 	python3 -m pip install --user dist/*.whl
 
-.PHONY: install lint build
+.PHONY: lint install brain-games build publish package-install
