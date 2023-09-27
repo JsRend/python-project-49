@@ -11,7 +11,7 @@ def give_random_operand(lower_bound=0, upper_bound=15):
     return random.randint(lower_bound, upper_bound)
 
 
-def make_question():
+def give_random_progression():
 
     length_progression = give_random_operand(MIN_LENGTH)
     initial_element = give_random_operand()
@@ -23,13 +23,18 @@ def make_question():
     for element in range(initial_element, last_elem, step_progression):
         progression_list.append(element)
 
+    return length_progression, progression_list
+
+
+def make_question():
+
+    length_progression, progression_list = give_random_progression()
+
     random_index = random.randrange(0, length_progression)
     correct_answer = str(progression_list[random_index])
 
     progression_list[random_index] = '..'
 
     question = ' '.join(map(str, progression_list))
-    # map(str, LIST) allows you to remove the quotation marks "[" when output.
-    # Not a bug, a feature
 
     return question, correct_answer
