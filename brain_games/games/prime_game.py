@@ -7,16 +7,16 @@ def give_random_operand(lower_bound=2, upper_bound=100):
     return random.randint(lower_bound, upper_bound)
 
 
-def check_prime(x):
+def is_prime(x):
     for i in range(2, (x // 2) + 1):
         if x % i == 0:
-            return 'no'
-    return 'yes'
+            return False
+    return True
 
 
 def make_question():
 
     question = give_random_operand()
-    correct_answer = check_prime(question)
+    correct_answer = 'yes' if is_prime(question) else 'no'
 
     return question, correct_answer
