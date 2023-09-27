@@ -23,7 +23,7 @@ def core(game):
         print(f"Question: {question}")
         user_answer = prompt.string('Your answer: ')
 
-        if user_answer.upper() == correct_answer.upper():
+        if user_answer == correct_answer:
 
             print('Correct!')
             COUNTER += 1
