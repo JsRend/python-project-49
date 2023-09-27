@@ -10,12 +10,12 @@ def give_random_operand():
     return random.randint(LOWER_BOUND, UPPER_BOUND)
 
 
-def find_gcd(number_A, number_B):
+def find_gcd(number_a, number_b):
 
-    if number_A < number_B:
-        smaller_num, larger_num = number_A, number_B
+    if number_a < number_b:
+        smaller_num, larger_num = number_a, number_b
     else:
-        smaller_num, larger_num = number_B, number_A
+        smaller_num, larger_num = number_b, number_a
 
     while True:
         remainder = larger_num % smaller_num

@@ -10,7 +10,7 @@ def greet_user():
     return user_name
 
 
-def core(game):
+def launch_game(game):
 
     user_name = greet_user()
     print(f"{game.TASK}")
