@@ -32,6 +32,4 @@ def make_question():
         (int(components[0]), int(components[2]))
     )
 
-    # correct_answer = f"{get_correct_answer(question)}"
-
     return question, correct_answer
